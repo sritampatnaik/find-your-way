@@ -90,6 +90,7 @@ class mapParser(object):
         print('\n'.join([''.join(['{:5}'.format(item) for item in row[0:15]])
                          for row in self.matrix[0:15]]))
 
+
         # EXTRA STUFF FOR TESTING AND PRINTING#
 
         # print json.dumps(buildingMap.get('map'), indent=4)

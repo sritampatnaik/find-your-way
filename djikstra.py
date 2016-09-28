@@ -89,10 +89,10 @@ def dijkstra(start):
         for w in range(NUM_NODES):
             if w != v and currMap.getDistance(v, w) > 0:
                 relax(v, w)
-    print "Distance:", nodes
-    print
-    print "Tree:", tree
-    print
+    # print "Distance:", nodes
+    # print
+    # print "Tree:", tree
+    # print
 
 
 def isInTree(start, end):
