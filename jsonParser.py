@@ -17,9 +17,10 @@ import distanceAngleCalculation
 # getDistance(point1, point2)
 
 class mapParser(object):
+    #self is a reference to the current instance of the class other language pass it implicitly but not in python
     def __init__(self, mapName):
-        self.mapName = mapName
-        self.buildingMap = {}
+        self.mapName = mapName #saving map name basically whatever you passed as the param to mapParser
+        self.buildingMap = {} #empty building dictionary
         self.northAt = 0
         self.numElements = 0
         self.matrix = {}
@@ -87,7 +88,7 @@ class mapParser(object):
             return self.matrix[point2][point1]
 
     def printMap(self):
-        print('\n'.join([''.join(['{:5}'.format(item) for item in row[0:15]])
+        print('\n'.join([' '.join(['{:5}'.format(item) for item in row[0:15]])
                          for row in self.matrix[0:15]]))
 
 

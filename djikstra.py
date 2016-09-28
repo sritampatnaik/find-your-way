@@ -1,5 +1,6 @@
 import sys
 import Queue
+import distanceAngleCalculation
 from jsonParser import mapParser
 
 # [[0 for x in range(NUM_NODES)] for x in range(NUM_NODES)]
@@ -24,15 +25,15 @@ while (True):
     else:
         mapNo = input("Map No: ")
 
-redNodes = [0 for x in range(NUM_NODES)]
-nodes = [0 for x in range(NUM_NODES)]
+visitedNodes = [0 for x in range(NUM_NODES)] #here we store whether we have visited a certain node
+nodes = [0 for x in range(NUM_NODES)] #we store the shortest path from the root node
 tree = []
 
 
 def init():
     for x in range(0, NUM_NODES):
         nodes[x] = sys.maxint
-        redNodes[x] = 0
+        visitedNodes[x] = 0
 
 
 ##        for y in range(0, NUM_NODES):
@@ -48,7 +49,7 @@ def init():
 ##            adj[4][5] = 4
 
 def isAllRed():
-    for x in redNodes:
+    for x in visitedNodes:
         if x == 0:
             return 0
     return 1
@@ -58,7 +59,7 @@ def getMinDistNode():
     minDist = sys.maxint
     minIndex = -1
     for x in range(NUM_NODES):
-        if redNodes[x] == 0 and nodes[x] < minDist:
+        if visitedNodes[x] == 0 and nodes[x] < minDist:
             minIndex = x
             minDist = nodes[x]
     return minIndex
@@ -84,7 +85,7 @@ def dijkstra(start):
 
     while (isAllRed() == 0):
         v = getMinDistNode()
-        redNodes[v] = 1
+        visitedNodes[v] = 1
 
         for w in range(NUM_NODES):
             if w != v and currMap.getDistance(v, w) > 0:
@@ -109,18 +110,40 @@ def getPath(start, end):
     while path[len(path) - 1] != end:
         isFound = False
         for x in tree:
-            if x[0] == path[len(path) - 1] and redNodes[x[1]] == 0:
+            if x[0] == path[len(path) - 1] and visitedNodes[x[1]] == 0:
                 path.append(x[1])
                 isFound = True
                 break
         if not isFound:
-            redNodes[path.pop()] = 1
-    print "Path:",  # path
-    for x in range(len(path)):
-        print path[x] + 1,
-
+            visitedNodes[path.pop()] = 1
+    return path
+    # print "Path:",  # path
+    # for x in range(len(path)):
+    #     print path[x] + 1,
 
 startingNode = input("Starting Node: ")
 endingNode = input("Ending Node: ")
 dijkstra(startingNode - 1)
-getPath(startingNode - 1, endingNode - 1)
+path = getPath(startingNode - 1, endingNode - 1)
+print "Path:",  # path
+for x in range(len(path)):
+    print path[x] + 1,
+print
+currX = input("Current X: ")
+currY = input("Current Y: ")
+# currHeading = input("Current Heading: ")
+nearestNode = path[0]+1
+minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[0]]['x'], currMap.buildingMap['map'][path[0]]['y'])
+# currAngle = distanceAngleCalculation.calcAngle(currMap.buildingMap['map'][path[0]]['x'], currMap.buildingMap['map'][path[0]]['y'], currX, currY,  currHeading)
+
+for x in range(len(path)):
+    if minDis > distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y']):
+        nearestNode = path[x]+1
+        minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y'])
+        # currAngle = distanceAngleCalculation.calcAngle(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y'], currHeading)
+
+print 'You are ' + str(minDis) + ' cm away from the nearest node which is ' + str(nearestNode)
+# print nearestNode
+# print currAngle
+
+
