@@ -129,21 +129,31 @@ print "Path:",  # path
 for x in range(len(path)):
     print path[x] + 1,
 print
-currX = input("Current X: ")
-currY = input("Current Y: ")
-# currHeading = input("Current Heading: ")
-nearestNode = path[0]+1
-minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[0]]['x'], currMap.buildingMap['map'][path[0]]['y'])
-# currAngle = distanceAngleCalculation.calcAngle(currMap.buildingMap['map'][path[0]]['x'], currMap.buildingMap['map'][path[0]]['y'], currX, currY,  currHeading)
 
-for x in range(len(path)):
-    if minDis > distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y']):
-        nearestNode = path[x]+1
-        minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y'])
-        # currAngle = distanceAngleCalculation.calcAngle(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y'], currHeading)
+for x in range(0, 5):
+    currX = input("Current X: ")
+    currY = input("Current Y: ")
+    currHeading = int(input("Current Heading: "))
+    nearestNode = path[0]+1
+    minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[0]]['x'], currMap.buildingMap['map'][path[0]]['y'])
+    currAngle = distanceAngleCalculation.calcAngle(int(currX), int(currY), int(currMap.buildingMap['map'][path[0]]['x']), int(currMap.buildingMap['map'][path[0]]['y']), int(currMap.buildingMap['info']['northAt']))
 
-print 'You are ' + str(minDis) + ' cm away from the nearest node which is ' + str(nearestNode)
-# print nearestNode
-# print currAngle
+    for x in range(len(path)):
+        if minDis > distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y']):
+            nearestNode = path[x]+1
+            minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y'])
+            currAngle = distanceAngleCalculation.calcAngle(int(currX), int(currY), int(currMap.buildingMap['map'][path[x]]['x']), int(currMap.buildingMap['map'][path[x]]['y']), int(currMap.buildingMap['info']['northAt']))
+
+    turnAngle = 0
+    turnDirection = ''
+    if (currAngle - currHeading) < -180:
+        turnAngle = (currAngle - currHeading) + 360
+        turnDirection = ' right '
+    else:
+        turnAngle = currAngle - currHeading
+        turnDirection = ' left '
+
+    print 'Turn' + turnDirection + 'by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to the nearest node which is ' + str(nearestNode)
+
 
 
