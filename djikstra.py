@@ -148,12 +148,15 @@ for x in range(0, 5):
     turnDirection = ''
     if (currAngle - currHeading) < -180:
         turnAngle = (currAngle - currHeading) + 360
-        turnDirection = ' right '
     else:
         turnAngle = currAngle - currHeading
-        turnDirection = ' left '
 
-    print 'Turn' + turnDirection + 'by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to the nearest node which is ' + str(nearestNode)
+    if turnAngle < 0 :
+        turnDirection = 'left'
+    else:
+        turnDirection = 'right'
+
+    print 'Turn ' + turnDirection + ' by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to the nearest node which is ' + str(nearestNode)
 
 
 
