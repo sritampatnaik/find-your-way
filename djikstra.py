@@ -143,20 +143,32 @@ for x in range(0, 5):
             nearestNode = path[x]+1
             minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[x]]['x'], currMap.buildingMap['map'][path[x]]['y'])
             currAngle = distanceAngleCalculation.calcAngle(int(currX), int(currY), int(currMap.buildingMap['map'][path[x]]['x']), int(currMap.buildingMap['map'][path[x]]['y']), int(currMap.buildingMap['info']['northAt']))
+        if int(minDis) == 0:
+            currAngle = distanceAngleCalculation.calcAngle(int(currMap.buildingMap['map'][path[x]]['x']), int(currMap.buildingMap['map'][path[x]]['y']),
+                                                           int(currMap.buildingMap['map'][path[x] + 1]['x']),
+                                                           int(currMap.buildingMap['map'][path[x] + 1]['y']),
+                                                           int(currMap.buildingMap['info']['northAt']))
+            minDis = distanceAngleCalculation.distance(currMap.buildingMap['map'][path[x]]['x'],
+                                                       currMap.buildingMap['map'][path[x]]['y'],
+                                                       currMap.buildingMap['map'][path[x] + 1]['x'],
+                                                       currMap.buildingMap['map'][path[x] + 1]['y'])
+            nearestNode += 1
 
     turnAngle = 0
     turnDirection = ''
+
     if (currAngle - currHeading) < -180:
         turnAngle = (currAngle - currHeading) + 360
     else:
         turnAngle = currAngle - currHeading
 
-    if turnAngle < 0 :
+    if turnAngle < 0:
         turnDirection = 'left'
     else:
         turnDirection = 'right'
 
-    print 'Turn ' + turnDirection + ' by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to the nearest node which is ' + str(nearestNode)
+    print 'Turn ' + turnDirection + ' by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to node ' + str(nearestNode)
+
 
 
 
