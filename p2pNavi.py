@@ -112,7 +112,6 @@ while (curXDisp > maxTolerance and curYDisp > maxTolerance) :
     # check if the path to be traversed is more horizontal or vertical
     # if horizontal, check the y displacement
     # if vertical, check the x displacement
-    # if neither, check the current x and y displacement and use the larger
 
     # horizontal and vertical displacements from correct path
     xStray = getEqnXDeviation(prevXCoord, prevYCoord,
