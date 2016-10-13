@@ -73,6 +73,6 @@ while (nextNodeIndex != len(path)):
         currHeading = int(input("Current Heading: "))
         if isAtNextNode(): break;
         giveDirection()
-    print "Reached: Node " + str(path[nextNodeIndex])
+    print "Reached: Node " + str(path[nextNodeIndex]+1)
     nextNodeIndex += 1
 
