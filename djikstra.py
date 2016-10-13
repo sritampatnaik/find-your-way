@@ -102,6 +102,8 @@ def isInTree(start, end):
             return True
     return False
 
+def getCurrMap():
+    return currMap
 
 def getPath(start, end):
     init()
