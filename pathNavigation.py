@@ -23,34 +23,42 @@ def giveDirection():
 
     print 'Turn ' + turnDirection + ' by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to node ' + str(nextUnvisitedNode)
 
+
 def isAtNextNode():
     disToNextNode = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[nextNodeIndex]]['x'], currMap.buildingMap['map'][path[nextNodeIndex]]['y'])
     if disToNextNode < 51:
         return True
     return False
 
-# def updateCoordinates(distanceWalked, heading):
-#     # calculate angle of triangle
-#     theta = heading - currHeading
-#
-#     # take abs values in case angle is not acute. walker is a cock.
-#     deltaX = math.fabs(distanceWalked * math.sin(math.rad(theta)))
-#     deltaY = math.fabs(distanceWalked * math.cos(math.rad(theta)))
-#
-#     # update coordinates
-#     if 0 < theta <= 90:
-#         currX = deltaX + currX
-#         currY += deltaY
-#     elif 90 < theta <= 180:
-#         currX -= deltaX
-#         currY += deltaY
-#     elif 180 < theta <= 270:
-#         currX -= deltaX
-#         currY -= deltaY
-#     # 270 < theta <= 360 is assumed here
-#     else:
-#         currX += deltaX
-#         currY -= deltaY
+
+def updateCoordinates(distanceWalked, heading):
+    global currX
+    global currY
+    # calculate angle of triangle
+    theta = heading - int(currHeading)
+
+    # take abs values in case angle is not acute. walker is a cock.
+    deltaX = math.fabs(distanceWalked * math.sin(math.atan(theta)))
+    deltaY = math.fabs(distanceWalked * math.cos(math.atan(theta)))
+
+    # update coordinates
+    if 0 < theta <= 90:
+        currX += float(deltaX)
+        currY += deltaY
+    elif 90 < theta <= 180:
+        currX -= deltaX
+        currY += deltaY
+    elif 180 < theta <= 270:
+        currX -= deltaX
+        currY -= deltaY
+    # 270 < theta <= 360 is assumed here
+    else:
+        currX += deltaX
+        currY -= deltaY
+    print currX
+    print currY
+
+
 
 startingNode = input("Starting Node: ")
 endingNode = input("Ending Node: ")
@@ -62,17 +70,23 @@ for x in range(len(path)):
     print path[x] + 1,
 
 nextNodeIndex = 1
-currX = currMap.buildingMap['map'][path[0]]['x']
-currY = currMap.buildingMap['map'][path[0]]['y']
-currHeading = currMap.buildingMap['info']['northAt']
+currX = int(currMap.buildingMap['map'][path[0]]['x'])
+currY = int(currMap.buildingMap['map'][path[0]]['y'])
+currHeading = int(currMap.buildingMap['info']['northAt'])
 
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
-        currX = input("Current X: ")
-        currY = input("Current Y: ")
-        currHeading = int(input("Current Heading: "))
+        distancewalked = input("Distance Walked:")
+        currheading = input("Current Heading: ")
+        updateCoordinates(distancewalked, currheading)
+        # currX = input("Current X: ")
+        # currY = input("Current Y: ")
+        # currHeading = int(input("Current Heading: "))
         if isAtNextNode(): break;
         giveDirection()
     print "Reached: Node " + str(path[nextNodeIndex]+1)
     nextNodeIndex += 1
+
+print "Reached end node, peace out !"
+
 
