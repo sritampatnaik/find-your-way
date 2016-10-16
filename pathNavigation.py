@@ -35,7 +35,7 @@ def updateCoordinates(distanceWalked, heading):
     global currX
     global currY
     # calculate angle of triangle
-    theta = heading - int(currHeading)
+    theta = heading - int(destinationHeading)
 
     # take abs values in case angle is not acute. walker is a cock.
     deltaX = math.fabs(distanceWalked * math.sin(math.atan(theta)))
@@ -72,12 +72,17 @@ for x in range(len(path)):
 nextNodeIndex = 1
 currX = int(currMap.buildingMap['map'][path[0]]['x'])
 currY = int(currMap.buildingMap['map'][path[0]]['y'])
-currHeading = int(currMap.buildingMap['info']['northAt'])
+
+destinationHeading = distanceAngleCalculation.calcAngle(int(currX), int(currY),
+                                               int(currMap.buildingMap['map'][path[nextNodeIndex]]['x']),
+                                               int(currMap.buildingMap['map'][path[nextNodeIndex]]['y']),
+                                               int(currMap.buildingMap['info']['northAt']))
 
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
         distancewalked = input("Distance Walked:")
         currheading = input("Current Heading: ")
+        currHeading = currheading;
         updateCoordinates(distancewalked, currheading)
         # currX = input("Current X: ")
         # currY = input("Current Y: ")
