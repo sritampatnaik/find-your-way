@@ -80,10 +80,12 @@ destinationHeading = distanceAngleCalculation.calcAngle(int(currX), int(currY),
 
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
+        # Uncomment the code below to implement step counter
         distancewalked = input("Distance Walked:")
         currheading = input("Current Heading: ")
         currHeading = currheading;
         updateCoordinates(distancewalked, currheading)
+        # Uncomment the code below to key in x and y manually
         # currX = input("Current X: ")
         # currY = input("Current Y: ")
         # currHeading = int(input("Current Heading: "))
