@@ -31,30 +31,38 @@ def isAtNextNode():
     return False
 
 
-def updateCoordinates(distanceWalked, heading):
+def updateCoordinates(distanceWalked, currHeading):
     global currX
     global currY
     # calculate angle of triangle
-    theta = heading - int(destinationHeading)
+    theta = currHeading - int(destinationHeading)
 
     # take abs values in case angle is not acute. walker is a cock.
-    deltaX = math.fabs(distanceWalked * math.sin(math.atan(theta)))
-    deltaY = math.fabs(distanceWalked * math.cos(math.atan(theta)))
+    deltaX = math.fabs(distanceWalked * math.cos(math.radians(theta)))
+    deltaY = math.fabs(distanceWalked * math.sin(math.radians(theta)))
 
+    print "destination heading"
+    print destinationHeading
+    print "theta:"
+    print theta
+    print "delta:"
+    print deltaX
+    print deltaY
     # update coordinates
-    if 0 < theta <= 90:
+    if -90 < theta <= 0:
         currX += float(deltaX)
         currY += deltaY
-    elif 90 < theta <= 180:
+    elif -180 < theta <= -90:
         currX -= deltaX
         currY += deltaY
-    elif 180 < theta <= 270:
-        currX -= deltaX
-        currY -= deltaY
-    # 270 < theta <= 360 is assumed here
-    else:
+    elif 0 < theta <= 90:
         currX += deltaX
         currY -= deltaY
+    elif 90 < theta <= 180:
+        currX -= deltaX
+        currY -= deltaY
+
+    print "actual"
     print currX
     print currY
 
@@ -82,9 +90,12 @@ while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
         # Uncomment the code below to implement step counter
         distancewalked = input("Distance Walked:")
-        currheading = input("Current Heading: ")
-        currHeading = currheading;
-        updateCoordinates(distancewalked, currheading)
+        currHeading = input("Current Heading: ")
+        updateCoordinates(distancewalked, currHeading)
+        destinationHeading = distanceAngleCalculation.calcAngle(int(currX), int(currY),
+                                                                int(currMap.buildingMap['map'][path[nextNodeIndex]]['x']),
+                                                                int(currMap.buildingMap['map'][path[nextNodeIndex]]['y']),
+                                                                int(currMap.buildingMap['info']['northAt']))
         # Uncomment the code below to key in x and y manually
         # currX = input("Current X: ")
         # currY = input("Current Y: ")
