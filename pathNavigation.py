@@ -1,7 +1,10 @@
 from jsonParser import mapParser
+from communication import Comm
 import distanceAngleCalculation
 import djikstra
 import math
+import time
+
 
 def giveDirection():
     nextUnvisitedNode = path[nextNodeIndex]+1
@@ -35,19 +38,12 @@ def updateCoordinates(distanceWalked, currHeading):
     global currX
     global currY
     # calculate angle of triangle
-    theta = currHeading - int(destinationHeading)
+    theta = currHeading - 135
 
     # take abs values in case angle is not acute. walker is a cock.
     deltaX = math.fabs(distanceWalked * math.cos(math.radians(theta)))
     deltaY = math.fabs(distanceWalked * math.sin(math.radians(theta)))
 
-    print "destination heading"
-    print destinationHeading
-    print "theta:"
-    print theta
-    print "delta:"
-    print deltaX
-    print deltaY
     # update coordinates
     if -90 < theta <= 0:
         currX += float(deltaX)
@@ -61,11 +57,6 @@ def updateCoordinates(distanceWalked, currHeading):
     elif 90 < theta <= 180:
         currX -= deltaX
         currY -= deltaY
-
-    print "actual"
-    print currX
-    print currY
-
 
 
 startingNode = input("Starting Node: ")
@@ -81,21 +72,21 @@ nextNodeIndex = 1
 currX = int(currMap.buildingMap['map'][path[0]]['x'])
 currY = int(currMap.buildingMap['map'][path[0]]['y'])
 
-destinationHeading = distanceAngleCalculation.calcAngle(int(currX), int(currY),
-                                               int(currMap.buildingMap['map'][path[nextNodeIndex]]['x']),
-                                               int(currMap.buildingMap['map'][path[nextNodeIndex]]['y']),
-                                               int(currMap.buildingMap['info']['northAt']))
+Comm.start_sensing()
+Comm.request_data()
+currHeading = Comm.get_heading()
+giveDirection()
 
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
         # Uncomment the code below to implement step counter
-        distancewalked = input("Distance Walked:")
-        currHeading = input("Current Heading: ")
+        # distancewalked = input("Distance Walked:")
+        # currHeading = input("Current Heading: ")
+        time.sleep(2)  # delays for 5 seconds
+        Comm.request_data()
+        distancewalked = Comm.get_steps()
+        currHeading = Comm.get_heading()
         updateCoordinates(distancewalked, currHeading)
-        destinationHeading = distanceAngleCalculation.calcAngle(int(currX), int(currY),
-                                                                int(currMap.buildingMap['map'][path[nextNodeIndex]]['x']),
-                                                                int(currMap.buildingMap['map'][path[nextNodeIndex]]['y']),
-                                                                int(currMap.buildingMap['info']['northAt']))
         # Uncomment the code below to key in x and y manually
         # currX = input("Current X: ")
         # currY = input("Current Y: ")
