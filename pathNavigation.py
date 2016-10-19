@@ -1,9 +1,12 @@
 from jsonParser import mapParser
-from communication import Comm
+# from communication import Comm
 import distanceAngleCalculation
 import djikstra
 import math
 import time
+import pyttsx
+
+engine = pyttsx.init()
 
 
 def giveDirection():
@@ -24,8 +27,7 @@ def giveDirection():
     else:
         turnDirection = 'right'
 
-    print 'Turn ' + turnDirection + ' by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis) + ' cms to node ' + str(nextUnvisitedNode)
-
+    print ('Turn ' + turnDirection + ' by ' + str(abs(turnAngle)) + ' degrees and walk '+ str(minDis/60) + ' steps to node ' + str(nextUnvisitedNode))
 
 def isAtNextNode():
     disToNextNode = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[nextNodeIndex]]['x'], currMap.buildingMap['map'][path[nextNodeIndex]]['y'])
@@ -72,20 +74,11 @@ nextNodeIndex = 1
 currX = int(currMap.buildingMap['map'][path[0]]['x'])
 currY = int(currMap.buildingMap['map'][path[0]]['y'])
 
-Comm.start_sensing()
-Comm.request_data()
-currHeading = Comm.get_heading()
-giveDirection()
-
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
         # Uncomment the code below to implement step counter
-        # distancewalked = input("Distance Walked:")
-        # currHeading = input("Current Heading: ")
-        time.sleep(2)  # delays for 5 seconds
-        Comm.request_data()
-        distancewalked = Comm.get_steps()
-        currHeading = Comm.get_heading()
+        distancewalked = input("Steps Walked:") * 60
+        currHeading = input("Current Heading: ")
         updateCoordinates(distancewalked, currHeading)
         # Uncomment the code below to key in x and y manually
         # currX = input("Current X: ")
@@ -94,8 +87,10 @@ while (nextNodeIndex != len(path)):
         if isAtNextNode(): break;
         giveDirection()
     print "Reached: Node " + str(path[nextNodeIndex]+1)
+
     nextNodeIndex += 1
 
 print "Reached end node, peace out !"
+
 
 
