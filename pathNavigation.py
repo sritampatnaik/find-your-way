@@ -90,12 +90,11 @@ currX = int(currMap.buildingMap['map'][path[0]]['x'])
 currY = int(currMap.buildingMap['map'][path[0]]['y'])
 prevTotalDistance = 0
 
-Comm.start_sensing()
+
 Comm.request_data()
 currHeading = Comm.get_heading()
-currHeading = input("Heading:" )
 giveDirection()
-
+steps = 0
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
         # Uncomment the code below to implement step counter
@@ -105,24 +104,25 @@ while (nextNodeIndex != len(path)):
         # print "Current Heading: " + str(currHeading)
         # distancewalked = (totalSteps * 42) - prevTotalDistance
         Comm.request_data()
-        totalSteps = Comm.get_steps()
+        stepStatus = Comm.get_steps()
         currHeading = Comm.get_heading()
-        print "Total Steps: " + str(totalSteps)
+        print "Step Status: " + str(stepStatus)
         print "Current Heading: " + str(currHeading)
-        distancewalked = (totalSteps * 42) - prevTotalDistance
+        distancewalked = 42
 
-        if distancewalked > 0:
-            print "distance walked:" + str(distancewalked)
+        if stepStatus > steps:
             prevTotalDistance = prevTotalDistance + distancewalked
             print "previous total distance:" + str(prevTotalDistance)
+	    steps = stepStatus
             updateCoordinates(distancewalked, currHeading)
+
         # Uncomment the code below to key in x and y manually
         # currX = input("Current X: ")
         # currY = input("Current Y: ")
         # currHeading = int(input("Current Heading: "))
         if isAtNextNode(): break;
         giveDirection()
-        time.sleep(3)  # delays for 3 seconds
+        time.sleep(2)  # delays for 3 seconds
     print "Reached: Node " + str(path[nextNodeIndex] + 1)
     os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
     nextNodeIndex += 1

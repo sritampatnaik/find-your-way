@@ -27,7 +27,7 @@ class mapParser(object):
         self.loadMap(mapName)
         self.fillAMatrix()
 
-    # returns the URL of the map
+    #returns the URL of the map
     def mapUrl(self, identifier):
         map = {"com1L2": "http://ShowMyWay.comp.nus.edu.sg/getMapInfo.php?Building=COM1&Level=2",
                "com2L2": "http://showmyway.comp.nus.edu.sg/getMapInfo.php?Building=COM2&Level=2",
