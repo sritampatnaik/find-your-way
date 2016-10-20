@@ -18,13 +18,14 @@ import distanceAngleCalculation
 
 class mapParser(object):
     #self is a reference to the current instance of the class other language pass it implicitly but not in python
-    def __init__(self, mapName):
-        self.mapName = mapName #saving map name basically whatever you passed as the param to mapParser
+    def __init__(self, buildingName, levelNo):
+        self.buildingName = buildingName #saving building name basically whatever you passed as the param to mapParser
+        self.levelNo = levelNo #saving leve no basically whatever you passed as the second param to mapParser
         self.buildingMap = {} #empty building dictionary
         self.northAt = 0
         self.numElements = 0
         self.matrix = {}
-        self.loadMap(mapName)
+        self.loadMap(buildingName, levelNo)
         self.fillAMatrix()
 
     #returns the URL of the map
@@ -34,8 +35,8 @@ class mapParser(object):
                "com2L3": "http://showmyway.comp.nus.edu.sg/getMapInfo.php?Building=COM2&Level=3"}
         return map[identifier]
 
-    def loadMap(self, mapName):
-        jsonMap = urllib2.urlopen(self.mapUrl(mapName))
+    def loadMap(self, buildingName, levelNo):
+        jsonMap = urllib2.urlopen("http://ShowMyWay.comp.nus.edu.sg/getMapInfo.php?Building=" + str(buildingName) + "&Level=" + str(levelNo))
         self.buildingMap = json.load(jsonMap)
         self.northAt = int(self.buildingMap['info']['northAt'])
         self.numElements = len(self.buildingMap.get('map'))

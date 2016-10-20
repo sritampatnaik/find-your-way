@@ -1,12 +1,12 @@
 from jsonParser import mapParser
-import communication
+# import communication
 import distanceAngleCalculation
 import djikstra
 import math
 import time
 import os
 
-Comm = communication.Comm()
+# Comm = communication.Comm()
 
 
 def giveDirection():
@@ -32,10 +32,10 @@ def giveDirection():
         turnDirection = 'right'
 
     if abs(turnAngle) > 10:
-        os.system("flite -t ' " + turnDirection + str(int(abs(turnAngle))) + " walk " + str(int(round(minDis / 42))) + " steps '")
+        # os.system("flite -t ' " + turnDirection + str(int(abs(turnAngle))) + " walk " + str(int(round(minDis / 42))) + " steps '")
         print  turnDirection + str(int(abs(turnAngle))) + ' walk ' + str(int(round(minDis/42))) + ' cms  '
     else:
-        os.system("flite -t 'Walk straight " + str(int(round(minDis / 42))) + " steps'")
+        # os.system("flite -t 'Walk straight " + str(int(round(minDis / 42))) + " steps'")
         print 'Walk straight ' + str(int(round(minDis / 42))) + ' steps '
 
 
@@ -91,24 +91,25 @@ currY = int(currMap.buildingMap['map'][path[0]]['y'])
 prevTotalDistance = 0
 
 
-Comm.request_data()
-currHeading = Comm.get_heading()
+# Comm.request_data()
+# currHeading = Comm.get_heading()
+currHeading = input("Heading:" )
 giveDirection()
 steps = 0
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
         # Uncomment the code below to implement step counter
-        # totalSteps = input("Total steps:")
-        # currHeading = input("Heading:" )
-        # print "Total Steps: " + str(totalSteps)
-        # print "Current Heading: " + str(currHeading)
-        # distancewalked = (totalSteps * 42) - prevTotalDistance
-        Comm.request_data()
-        stepStatus = Comm.get_steps()
-        currHeading = Comm.get_heading()
+        stepStatus = input("stepStatus")
+        currHeading = input("Heading:" )
         print "Step Status: " + str(stepStatus)
         print "Current Heading: " + str(currHeading)
         distancewalked = 42
+        # Comm.request_data()
+        # stepStatus = Comm.get_steps()
+        # currHeading = Comm.get_heading()
+        # print "Step Status: " + str(stepStatus)
+        # print "Current Heading: " + str(currHeading)
+        # distancewalked = 42
 
         if stepStatus > steps:
             prevTotalDistance = prevTotalDistance + distancewalked
@@ -124,9 +125,9 @@ while (nextNodeIndex != len(path)):
         giveDirection()
         time.sleep(2)  # delays for 3 seconds
     print "Reached: Node " + str(path[nextNodeIndex] + 1)
-    os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
+    # os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
     nextNodeIndex += 1
 
 print "Reached end node, peace out !"
-os.system('flite -t "Reached end node, peace out !" ')
+# os.system('flite -t "Reached end node, peace out !" ')
 

@@ -3,27 +3,11 @@ import Queue
 import distanceAngleCalculation
 from jsonParser import mapParser
 
-# [[0 for x in range(NUM_NODES)] for x in range(NUM_NODES)]
+buildingName = raw_input("Building Name: ")
+levelNo = input("Level Num: ")
+currMap = mapParser(buildingName,levelNo)
+NUM_NODES = currMap.numElements
 
-mapNo = input("Map No: ")
-while (True):
-    if mapNo == 0:
-        currMap = mapParser("com1L2")
-        NUM_NODES = currMap.numElements
-        # adj = com1L2.matrix
-        break
-    elif mapNo == 1:
-        currMap = mapParser("com2L2")
-        NUM_NODES = currMap.numElements
-        # adj = com1L2.matrix
-        break
-    elif mapNo == 2:
-        currMap = mapParser("com2L3")
-        NUM_NODES = currMap.numElements
-        # adj = com1L2.matrix
-        break
-    else:
-        mapNo = input("Map No: ")
 
 visitedNodes = [0 for x in range(NUM_NODES)] #here we store whether we have visited a certain node
 nodes = [0 for x in range(NUM_NODES)] #we store the shortest path from the root node
