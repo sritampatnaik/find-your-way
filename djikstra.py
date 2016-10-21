@@ -5,40 +5,52 @@ from jsonParser import mapParser
 import os
 
 ### This code is suppossed to be uncommented out in the pi ###
-# import communication
-# Comm = communication.Comm()
-# buildingName = ""
-# levelNo = ""
-# print "Enter building number: "
-# os.system('flite -t "Enter building number:" ')
-# while (buildingName == ""):
-#     buildingName = Comm.get_keypad_input()
-#
-# os.system("flite -t 'You entered " + str(buildingName) + "'")
-# print buildingName
-#
-# print "Level Num: "
-# os.system('flite -t "Enter Level Number:" ')
-# while (levelNo == ""):
-#     levelNo = Comm.get_keypad_input()
-#
-# os.system("flite -t 'You entered " + str(levelNo) + "'")
-# print levelNo
+import communication
+Comm = communication.Comm()
+
+confirm = ""
+while confirm != "*":
+    buildingName = ""
+    levelNo = ""
+    print "Enter building number: "
+    os.system('flite -t "Enter building number:" ')
+    while buildingName == "":
+        buildingName = Comm.get_keypad_input()
+
+    os.system("flite -t 'You entered " + str(buildingName) + "'")
+    print buildingName
+
+    print "Level Num: "
+    os.system('flite -t "Enter Level Number:" ')
+    while levelNo == "":
+        levelNo = Comm.get_keypad_input()
+
+    os.system("flite -t 'You entered " + str(levelNo) + "'")
+    print levelNo
+
+    os.system('flite -t "Press star and hash to confirm:" ')
+    while confirm == "":
+        confirm = Comm.get_keypad_input()
+
+os.system('flite -t "You have confirmed" ')
 
 ### The following code is for debugging in the ide so comment it in the pi ###
-buildingName = ""
-levelNo = ""
-print "Enter building number: "
-while (buildingName == ""):
-    buildingName = input()
-
-print buildingName
-
-print "Level Num: "
-while (levelNo == ""):
-    levelNo = input()
-
-print levelNo
+# confirm = ""
+# while confirm != "*":
+#     buildingName = ""
+#     levelNo = ""
+#     print "Enter building number: "
+#     while buildingName == "":
+#         buildingName = input()
+#
+#     print buildingName
+#
+#     print "Level Num: "
+#     while levelNo == "":
+#         levelNo = input()
+#
+#     print levelNo
+#     confirm = raw_input("confirm:")
 
 
 currMap = mapParser(buildingName,levelNo)
