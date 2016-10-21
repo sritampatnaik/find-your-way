@@ -1,18 +1,18 @@
 from jsonParser import mapParser
-# import communication
 import distanceAngleCalculation
 import djikstra
 import math
 import time
 import os
 
+### This code is suppossed to be uncommented out in the pi ###
+# import communication
 # Comm = communication.Comm()
 
 
 def giveDirection():
     nextUnvisitedNode = path[nextNodeIndex] + 1
-    minDis = distanceAngleCalculation.distance(currX, currY,
-                                               currMap.buildingMap['map'][path[nextNodeIndex]]['x'],
+    minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[nextNodeIndex]]['x'],
                                                currMap.buildingMap['map'][path[nextNodeIndex]]['y'])
     currAngle = distanceAngleCalculation.calcAngle(int(currX), int(currY),
                                                    int(currMap.buildingMap['map'][path[nextNodeIndex]]['x']),
@@ -77,24 +77,50 @@ def updateCoordinates(distanceWalked, currHeading):
         currY -= deltaY
 
 
-startingNode = input("Starting Node: ")
-endingNode = input("Ending Node: ")
+def updateHeading(heading):
+    heading = heading - 16
+    if(heading<0):
+        heading=heading+360
+    return heading
 
+
+### The following code is for debugging in the ide so comment it in the pi ###
+startingNode = ""
+endingNode = ""
+print "Enter starting node "
+while (startingNode == ""):
+    startingNode = input()
+
+print startingNode
+
+print "Enter ending Node: "
+while (endingNode == ""):
+    endingNode = input()
+
+print endingNode
+
+### This code is suppossed to be uncommented out in the pi ###
+# startingNode = ""
+# endingNode = ""
+# os.system('flite -t "Enter starting node" ')
 # print "Enter starting node "
-# while (Comm.get_keypad_input == ""):
-#     startingNode = Comm.get_keypad_input
+# while (startingNode == ""):
+#     startingNode = Comm.get_keypad_input()
 #
+# os.system("flite -t 'You entered " + str(startingNode) + "'")
 # print startingNode
 #
+# os.system('flite -t "Enter ending node" ')
 # print "Enter ending Node: "
-# while (Comm.get_keypad_input == ""):
-#     endingNode = Comm.get_keypad_input
+# while (endingNode == ""):
+#     endingNode = Comm.get_keypad_input()
 #
+# os.system("flite -t 'You entered " + str(endingNode) + "'")
 # print endingNode
 
 
-djikstra.dijkstra(startingNode - 1)
-path = djikstra.getPath(startingNode - 1, endingNode - 1)
+djikstra.dijkstra(int(startingNode) - 1)
+path = djikstra.getPath(int(startingNode) - 1, int(endingNode) - 1)
 currMap = djikstra.getCurrMap()
 print "Path:",  # path
 for x in range(len(path)):
@@ -105,22 +131,30 @@ currX = int(currMap.buildingMap['map'][path[0]]['x'])
 currY = int(currMap.buildingMap['map'][path[0]]['y'])
 prevTotalDistance = 0
 
-# Comm.request_data()
-# currHeading = Comm.get_heading()
-currHeading = input("Heading:" )
+### The following code is for debugging in the ide so comment it in the pi ###
+currHeading =updateHeading(input("Heading:" ))
 giveDirection()
 steps = 0
+
+### This code is suppossed to be uncommented out in the pi ###
+# Comm.request_data()
+# currHeading =updateHeading( Comm.get_heading() )
+# giveDirection()
+# steps = 0
+
 while (nextNodeIndex != len(path)):
     while not (isAtNextNode()):
-        # Uncomment the code below to implement step counter
+        ### The following code is for debugging in the ide so comment it in the pi ###
         stepStatus = input("stepStatus")
-        currHeading = input("Heading:" )
+        currHeading = updateHeading(input("Heading:"))
         print "Step Status: " + str(stepStatus)
         print "Current Heading: " + str(currHeading)
         distancewalked = 42
+
+        ### This code is suppossed to be uncommented out in the pi ###
         # Comm.request_data()
         # stepStatus = Comm.get_steps()
-        # currHeading = Comm.get_heading()
+        # currHeading = updateHeading(Comm.get_heading())
         # print "Step Status: " + str(stepStatus)
         # print "Current Heading: " + str(currHeading)
         # distancewalked = 42
@@ -137,7 +171,8 @@ while (nextNodeIndex != len(path)):
         # currHeading = int(input("Current Heading: "))
         if isAtNextNode(): break;
         giveDirection()
-        time.sleep(2)  # delays for 3 seconds
+        # time.sleep(1)
+	# delays for 1 seconds
     print "Reached: Node " + str(path[nextNodeIndex] + 1)
     # os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
     nextNodeIndex += 1

@@ -2,22 +2,43 @@ import sys
 import Queue
 import distanceAngleCalculation
 from jsonParser import mapParser
+import os
+
+### This code is suppossed to be uncommented out in the pi ###
 # import communication
-
-buildingName = raw_input("Building Name: ")
-levelNo = input("Level Num: ")
-
 # Comm = communication.Comm()
-#
+# buildingName = ""
+# levelNo = ""
 # print "Enter building number: "
-# while (Comm.get_keypad_input == ""):
-#     buildingName = Comm.get_keypad_input
+# os.system('flite -t "Enter building number:" ')
+# while (buildingName == ""):
+#     buildingName = Comm.get_keypad_input()
+#
+# os.system("flite -t 'You entered " + str(buildingName) + "'")
 # print buildingName
 #
-# print "Building Name: "
-# while (Comm.get_keypad_input == ""):
-#     levelNo = Comm.get_keypad_input
+# print "Level Num: "
+# os.system('flite -t "Enter Level Number:" ')
+# while (levelNo == ""):
+#     levelNo = Comm.get_keypad_input()
+#
+# os.system("flite -t 'You entered " + str(levelNo) + "'")
 # print levelNo
+
+### The following code is for debugging in the ide so comment it in the pi ###
+buildingName = ""
+levelNo = ""
+print "Enter building number: "
+while (buildingName == ""):
+    buildingName = input()
+
+print buildingName
+
+print "Level Num: "
+while (levelNo == ""):
+    levelNo = input()
+
+print levelNo
 
 
 currMap = mapParser(buildingName,levelNo)
