@@ -11,7 +11,8 @@ import os
 
 def giveDirection():
     nextUnvisitedNode = path[nextNodeIndex] + 1
-    minDis = distanceAngleCalculation.distance(currX, currY, currMap.buildingMap['map'][path[nextNodeIndex]]['x'],
+    minDis = distanceAngleCalculation.distance(currX, currY,
+                                               currMap.buildingMap['map'][path[nextNodeIndex]]['x'],
                                                currMap.buildingMap['map'][path[nextNodeIndex]]['y'])
     currAngle = distanceAngleCalculation.calcAngle(int(currX), int(currY),
                                                    int(currMap.buildingMap['map'][path[nextNodeIndex]]['x']),
@@ -78,6 +79,20 @@ def updateCoordinates(distanceWalked, currHeading):
 
 startingNode = input("Starting Node: ")
 endingNode = input("Ending Node: ")
+
+# print "Enter starting node "
+# while (Comm.get_keypad_input == ""):
+#     startingNode = Comm.get_keypad_input
+#
+# print startingNode
+#
+# print "Enter ending Node: "
+# while (Comm.get_keypad_input == ""):
+#     endingNode = Comm.get_keypad_input
+#
+# print endingNode
+
+
 djikstra.dijkstra(startingNode - 1)
 path = djikstra.getPath(startingNode - 1, endingNode - 1)
 currMap = djikstra.getCurrMap()
@@ -89,7 +104,6 @@ nextNodeIndex = 1
 currX = int(currMap.buildingMap['map'][path[0]]['x'])
 currY = int(currMap.buildingMap['map'][path[0]]['y'])
 prevTotalDistance = 0
-
 
 # Comm.request_data()
 # currHeading = Comm.get_heading()
@@ -114,7 +128,7 @@ while (nextNodeIndex != len(path)):
         if stepStatus > steps:
             prevTotalDistance = prevTotalDistance + distancewalked
             print "previous total distance:" + str(prevTotalDistance)
-	    steps = stepStatus
+            steps = stepStatus
             updateCoordinates(distancewalked, currHeading)
 
         # Uncomment the code below to key in x and y manually

@@ -2,9 +2,24 @@ import sys
 import Queue
 import distanceAngleCalculation
 from jsonParser import mapParser
+# import communication
 
 buildingName = raw_input("Building Name: ")
 levelNo = input("Level Num: ")
+
+# Comm = communication.Comm()
+#
+# print "Enter building number: "
+# while (Comm.get_keypad_input == ""):
+#     buildingName = Comm.get_keypad_input
+# print buildingName
+#
+# print "Building Name: "
+# while (Comm.get_keypad_input == ""):
+#     levelNo = Comm.get_keypad_input
+# print levelNo
+
+
 currMap = mapParser(buildingName,levelNo)
 NUM_NODES = currMap.numElements
 
