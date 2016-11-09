@@ -37,7 +37,7 @@ class mapParser(object):
 
     def loadMap(self, buildingName, levelNo):
         try:
-            jsonMap = urllib2.urlopen("http://ShowMyWay.comp.nus.edu.sg/getMapInfo.php?Building=COM" + str(buildingName) + "&Level=" + str(levelNo))
+            jsonMap = urllib2.urlopen("http://ShowMyWay.comp.nus.edu.sg/getMapInfo.php?Building=" + str(buildingName) + "&Level=" + str(levelNo))
             self.buildingMap = json.load(jsonMap)
         except:
             with open('maps/COM' + str(buildingName) + 'L' + str(levelNo) +'.json') as json_data:

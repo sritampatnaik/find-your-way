@@ -6,10 +6,11 @@ HANDSHAKE_CODE = '0'
 REQUEST_CODE = '1'
 RESET_CODE = '2'
 START_SENSOR_CODE = '3'
+KEYPAD_CODE = '4'
 
 
 def convert_to_float(raw, divisor):
-    return float(raw)/divisor
+    return float(raw) / divisor
 
 
 # Only Part1 of the class interfaces with the hardware access. Any change to the hardware tech stack should be contained
@@ -26,20 +27,19 @@ class Comm(object):
                   ('distLK', 3),
                   ('distRK', 3),
                   ('distRod', 3)]
-    
 
     # Part 1: functions interfacing with the hardware
 
     def __init__(self):
         self.ser = serial.Serial(port=SERIAL_PORT,
-    baudrate = 9600,
-    parity = serial.PARITY_NONE,
-    stopbits = serial.STOPBITS_ONE,
-    bytesize = serial.EIGHTBITS,
-    timeout = 1)
+                                 baudrate=9600,
+                                 parity=serial.PARITY_NONE,
+                                 stopbits=serial.STOPBITS_ONE,
+                                 bytesize=serial.EIGHTBITS,
+                                 timeout=1)
         self.msg_raw = ''
         self.msg_decoded = {}
-        sleep(2)
+        sleep(3)
         '''
         # wait for the port to be ready,
         # TODO: remove the need for sleep after studying pySerial library in depth.
@@ -74,17 +74,27 @@ class Comm(object):
             pass
         self.ser.flushInput()
 
+    def get_keypad_input(self):
+        self.ser.flushInput()
+        self.ser.write(KEYPAD_CODE)
+        return self.ser.readline()
+
     def request_data(self):
         self.ser.flushInput()
         self.ser.write(REQUEST_CODE)
-        self.msg_raw = self.ser.readline()
+        self.msg_temp = self.ser.readline()
+        if (self.msg_temp != ""):
+            self.msg_raw = self.msg_temp
+        else:
+            print("null value from arduino")
         self.process_raw()
 
     # reset step counter on Arduino
     def send_reset(self):
         self.ser.write(RESET_CODE)
         while self.ser.readline()[0:5] != 'reset':
-            pass
+            self.ser.flushInput()
+            self.ser.write(RESET_CODE)
         self.ser.flushInput()
 
     # Part 2: functions that do not interface with the hardware
@@ -95,6 +105,7 @@ class Comm(object):
     #
     # processing raw message into msg_decoded
     '''
+
     def process_raw(self):
         i = 0
         for (key, value) in self.msg_format:
@@ -105,30 +116,31 @@ class Comm(object):
         return int(self.msg_decoded['stps'])
 
     def get_pressure(self):
-        return float(int(self.msg_decoded['prs']))/100
+        return int(int(self.msg_decoded['prs']))
 
     def get_heading(self):
         return int(self.msg_decoded['head'])
 
     def get_distanceLW(self):
         return int(self.msg_decoded['distLW'])
-    
+
     def get_distanceRW(self):
         return int(self.msg_decoded['distRW'])
-    
+
     def get_distanceLF(self):
         return int(self.msg_decoded['distLF'])
-    
+
     def get_distanceRF(self):
         return int(self.msg_decoded['distRF'])
-    
+
     def get_distanceLK(self):
         return int(self.msg_decoded['distLK'])
+
     def get_distanceRK(self):
         return int(self.msg_decoded['distRK'])
-    
+
     def get_distanceRod(self):
         return int(self.msg_decoded['distRod'])
-    
+
 
 
