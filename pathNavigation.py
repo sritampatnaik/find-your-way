@@ -35,8 +35,9 @@ c1L2[31]= 1
 c1L2[28] = 1
 c1L2[1] = 1
 c1L2[2] = 1
+c1L2[16] = 1
 
-c2L2 = [0]*21
+c2L2 = [0]*22
 c2L2[1] = 1
 c2L2[17] = 1
 c2L2[2] = 1
@@ -52,6 +53,7 @@ c2L2[13] = 1
 c2L2[14] = 1
 c2L2[15] = 1
 c2L2[16] = 1
+c2L2[21] = 1
 
 c2L3 = [0]*17
 c2L3[1] = 1
@@ -77,65 +79,229 @@ def giveWarning(currNode, nextNode, disLeft, bnum, lnum):
     if bnum == 1 and lnum == 2:
         if currNode == 34 and nextNode == 26:
             if disLeft <= 250:
-                # os.system("flite -t 'Vaani bang bang ahead '")
+                # os.system("flite -t 'Vaani bang bang Pull '")
                 print "glass hai aage"
-                warnFlag = 1
+                warnFlag=1
         elif currNode == 26 and nextNode == 29:
-            # os.system("flite -t 'Vaani bang bang ahead  '")
+            # os.system("flite -t 'Vaani bang bang Pull '")
             print "glass hai aage"
-            warnFlag = 1
+            warnFlag=1
         elif currNode == 29 and nextNode == 26:
             if disLeft <= 250:
-                # os.system("flite -t 'Vaani bang bang ahead  '")
+                # os.system("flite -t 'Vaani bang bang Push  '")
                 print "glass hai aage"
-                warnFlag = 1
+                warnFlag=1
         elif currNode == 15 and nextNode == 32:
-            # os.system("flite -t 'Vaani bang bang ahead  '")
+            # os.system("flite -t 'Vaani bang bang ahead '")
             print "glass hai aage"
-            warnFlag = 1
+            warnFlag=1
         elif currNode == 32 and nextNode == 15:
-            # os.system("flite -t 'Vaani bang bang ahead  '")
+            # os.system("flite -t 'Vaani bang bang ahead'")
             print "glass hai aage"
+            warnFlag=1
+        elif currNode == 4 and nextNode == 6:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 6 and nextNode == 4:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 8 and nextNode == 9:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 9 and nextNode == 8:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 32 and nextNode == 33:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 33 and nextNode == 32:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 39 and nextNode == 40:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 40 and nextNode == 39:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 17 and nextNode == 19:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 19 and nextNode == 17:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 21 and nextNode == 23:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 23 and nextNode == 21:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 24 and nextNode == 27:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 27 and nextNode == 24:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 37 and nextNode == 38:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 38 and nextNode == 37:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 18 and nextNode == 20:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 20 and nextNode == 18:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 34 and nextNode == 35:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 35 and nextNode == 34:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                print "wood hai aage"
+                warnFlag = 1
+        elif currNode == 28 and nextNode == 30:
+            # os.system("flite -t 'Stairs Ahead Jaldi kar   '")  # wooden door
+            print "stair hai aage"
+            warnFlag = 1
+        elif currNode == 30 and nextNode == 28:
+            # os.system("flite -t 'Stairs Ahead Jaldi kar '")  # wooden door
+            print "stair hai aage"
+            warnFlag = 1
+        elif currNode == 22 and nextNode == 25:
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            print "wood hai aage"
+            warnFlag = 1
+        elif currNode == 25 and nextNode == 22:
+            # os.system("flite -t 'Wooden door ahead Push '")  # wooden door
+            print "wood hai aage"
             warnFlag = 1
     elif bnum == 2 and lnum == 2:
         if currNode == 6 and nextNode == 11:
             if disLeft <= 250:
-                # os.system("flite -t 'Vaani bang bang ahead  '")
+                # os.system("flite -t 'Vaani bang bang Pull  '")
                 print "glass hai aage"
-                warnFlag = 1
+                warnFlag=1
         elif currNode == 11 and nextNode == 12:
             if disLeft <= 250:
-                # os.system("flite -t 'Vaani bang bang ahead  '") #wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
                 print "wood hai aage"
-                warnFlag = 1
+                warnFlag=1
         elif currNode == 12 and nextNode == 13:
-            if disLeft <= 250:
-                # os.system("flite -t 'Vaani bang bang ahead  '") #wooden door
-                print "wood hai aage"
-                warnFlag = 1
+            # os.system("flite -t 'Wooden door right Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
         elif currNode == 14 and nextNode == 15:
-            # os.system("flite -t 'Stairs Ahead'")
+            # os.system("flite -t 'Stairs Ahead Jaldi kar'")
             print "stair hai aage"
-            warnFlag = 1
+            warnFlag=1
+        elif currNode == 17 and nextNode == 18:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 18 and nextNode == 17:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 2 and nextNode == 3:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 3 and nextNode == 2:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 5 and nextNode == 4:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 4 and nextNode == 5:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 19 and nextNode == 20:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 20 and nextNode == 19:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 8 and nextNode == 9:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 9 and nextNode == 8:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
     elif bnum == 2 and lnum == 3:
         if currNode == 8 and nextNode == 7:
             if disLeft <= 250:
-                # os.system("flite -t 'Glass door approaching '")
+                # os.system("flite -t 'Vaani bang bang Push '")
                 print "glass hai aage"
-                warnFlag = 1
-        elif currNode == 9 and nextNode == 8:
-            if disLeft <= 250:
-                # os.system("flite -t 'Wooden door approaching '")
-                print "wood hai aage"
-                warnFlag = 1
-        elif currNode == 10 and nextNode == 9:
-            # os.system("flite -t 'Wooden door approaching '")
+                warnFlag=1
+        elif currNode == 12 and nextNode == 13:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
-            warnFlag = 1
-        elif currNode == 11 and nextNode == 10:
-            # os.system("flite -t 'Stairs Ahead'")
-            print "stair hai aage"
-            warnFlag = 1
+            warnFlag=1
+        elif currNode == 13 and nextNode == 12:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 4 and nextNode == 5:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 5 and nextNode == 4:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
+        elif currNode == 14 and nextNode == 15:
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            print "wood hai aage"
+            warnFlag=1
+        elif currNode == 15 and nextNode == 14:
+            if disLeft <= 250:
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
+                print "wood hai aage"
+                warnFlag=1
 
 def giveDirection():
     nextUnvisitedNode = path[nextNodeIndex] + 1
@@ -534,8 +700,12 @@ for y in range(runDjikstra):
             # time.sleep(1)
         # delays for 1 seconds
 
-        print "Reached: Node " + str(path[nextNodeIndex] + 1)
-        # os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
+        if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex]+1 == 21:
+            print "Intermediate"
+            # os.system("flite -t 'Intermediate' ")
+        else:
+            print "Reached: Node " + str(path[nextNodeIndex] + 1)
+            # os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
         nextNodeIndex += 1
 
     print reachedEndNodeMsg
