@@ -6,8 +6,8 @@ import time
 import os
 
 ### This code is suppossed to be uncommented out in the pi ###
-# import communication
-# Comm = communication.Comm()
+import communication
+Comm = communication.Comm()
 
 
 # Connector nodes between maps
@@ -392,42 +392,6 @@ def checkCorridor(map):
         return c2L3[path[nextNodeIndex - 1] + 1] == 1 and c2L3[path[nextNodeIndex] + 1] == 1
 
 ### The following code is for debugging in the ide so comment it in the pi ###
-confirm = ""
-while confirm != "*":
-    startBuildingNo = ""
-    startLevelNo = ""
-    startNodeNo = ""
-    endBuildingNo = ""
-    endLevelNo = ""
-    endNodeNo = ""
-
-    print "Enter starting building number: "
-    while startBuildingNo == "":
-        startBuildingNo = input()
-
-    print "Starting Level Num: "
-    while startLevelNo == "":
-        startLevelNo = input()
-
-    print "Starting Node Num: "
-    while startNodeNo == "":
-        startNodeNo = input()
-
-    print "Enter ending building number: "
-    while endBuildingNo == "":
-        endBuildingNo = input()
-
-    print "Ending Level Num: "
-    while endLevelNo == "":
-        endLevelNo = input()
-
-    print "Ending Node Num: "
-    while endNodeNo == "":
-        endNodeNo = input()
-
-    confirm = raw_input("confirm:")
-
-### This code is suppossed to be uncommented out in the pi ###
 # confirm = ""
 # while confirm != "*":
 #     startBuildingNo = ""
@@ -436,61 +400,95 @@ while confirm != "*":
 #     endBuildingNo = ""
 #     endLevelNo = ""
 #     endNodeNo = ""
+#     start = ""
+#     end =""
 #
-#     print "Enter starting building number: "
-#     os.system('flite -t "Enter starting building number:" ')
-#     while startBuildingNo == "":
-#         startBuildingNo = Comm.get_keypad_input()
+#     print "Starting details: "
+#     while start == "":
+#         start = str(input())
 #
-#     print startBuildingNo
-#     os.system("flite -t 'You entered " + str(startBuildingNo) + "'")
+#     print "Ending details: "
+#     while end == "":
+#         end = str(input())
 #
-#     print "Starting Level Num: "
-#     os.system('flite -t "Starting Level Num: " ')
-#     while startLevelNo == "":
-#         startLevelNo = Comm.get_keypad_input()
+#     startBuildingNo =  int(start[0])
+#     startLevelNo = int(start[1])
+#     if len(start) == 3:
+#         startNodeNo = int(start[2])
+#     elif len(start) == 4:
+#         startNodeNo = int(start[2] + start[3])
 #
-#     print startLevelNo
-#     os.system("flite -t 'You entered " + str(startLevelNo) + "'")
+#     print "start building: " + str(startBuildingNo)
+#     print "start level: " + str(startLevelNo)
+#     print "start node: " + str(startNodeNo)
 #
-#     print "Starting Node Num: "
-#     os.system('flite -t "Starting Node Num:" ')
-#     while startNodeNo == "":
-#         startNodeNo = Comm.get_keypad_input()
+#     endBuildingNo = int(start[0])
+#     endLevelNo = int(start[1])
+#     if len(start) == 3:
+#         endNodeNo = int(start[2])
+#     elif len(start) == 4:
+#         endNodeNo = int(start[2] + start[3])
 #
-#     print startNodeNo
-#     os.system("flite -t 'You entered " + str(startNodeNo) + "'")
+#     print "end building: " + str(endBuildingNo)
+#     print "end level: " + str(endLevelNo)
+#     print "end node: " + str(endNodeNo)
 #
-#     print "Enter ending building number: "
-#     os.system('flite -t "Enter ending building number:" ')
-#     while endBuildingNo == "":
-#         endBuildingNo = Comm.get_keypad_input()
-#
-#     print endBuildingNo
-#     os.system("flite -t 'You entered " + str(endBuildingNo) + "'")
-#
-#
-#     print "Ending Level Num: "
-#     os.system('flite -t "Ending Level Num: " ')
-#     while endLevelNo == "":
-#         endLevelNo = Comm.get_keypad_input()
-#
-#     print endLevelNo
-#     os.system("flite -t 'You entered " + str(endLevelNo) + "'")
-#
-#     print "Ending Node Num: "
-#     os.system('flite -t "Ending Node Num: " ')
-#     while endNodeNo == "":
-#         endNodeNo = Comm.get_keypad_input()
-#
-#     print endNodeNo
-#     os.system("flite -t 'You entered " + str(endNodeNo) + "'")
-#
-#     os.system('flite -t "Press star and hash to confirm:" ')
-#     while confirm == "":
-#         confirm = Comm.get_keypad_input()
-#
-# os.system('flite -t "You have confirmed" ')
+#     confirm = raw_input("confirm:")
+
+## This code is suppossed to be uncommented out in the pi ###
+confirm = ""
+while confirm != "*":
+    startBuildingNo = ""
+    startLevelNo = ""
+    startNodeNo = ""
+    endBuildingNo = ""
+    endLevelNo = ""
+    endNodeNo = ""
+    start = ""
+    end = ""
+    confirm = ""
+
+    print "Starting details: "
+    os.system('flite -t "Enter starting details:" ')
+    while start == "":
+        start = str(Comm.get_keypad_input())
+
+    print "Ending details: "
+    os.system('flite -t "Enter ending details:" ')
+    while end == "":
+        end = str(Comm.get_keypad_input())
+
+    startBuildingNo = int(start[0])
+    startLevelNo = int(start[1])
+    if len(start) == 3:
+        startNodeNo = int(start[2])
+    elif len(start) == 4:
+        startNodeNo = int(start[2] + start[3])
+
+
+
+    endBuildingNo = int(end[0])
+    endLevelNo = int(end[1])
+    if len(end) == 3:
+        endNodeNo = int(end[2])
+    elif len(end) == 4:
+        endNodeNo = int(end[2] + end[3])
+
+    print "start building: " + str(startBuildingNo)
+    print "start level: " + str(startLevelNo)
+    print "start node: " + str(startNodeNo)
+    print "end building: " + str(endBuildingNo)
+    print "end level: " + str(endLevelNo)
+    print "end node: " + str(endNodeNo)
+
+    os.system("flite -t 'Start Building " + str(startBuildingNo) + ", start level " + str(startLevelNo) + ", start node " +  str(startNodeNo) + "'")
+    os.system("flite -t 'End Building " + str(endBuildingNo) + ", end level " + str(endLevelNo) + ", end node " +  str(endNodeNo) + "'")
+
+    os.system('flite -t "Press star and hash to confirm:" ')
+    while confirm == "":
+        confirm = Comm.get_keypad_input()
+
+os.system('flite -t "You have confirmed" ')
 
 if int(startBuildingNo) != int(endBuildingNo) and int(startLevelNo) != int(endLevelNo):
     print "here"
@@ -597,20 +595,20 @@ for y in range(runDjikstra):
     prevTotalDistance = 0
 
     ### The following code is for debugging in the ide so comment it in the pi ###
-    stepStatus = 0
-    magReading = input("Heading:" )
-    currHeading = updateHeading(magReading)
-    steps = 0
+    # stepStatus = 0
+    # magReading = input("Heading:" )
+    # currHeading = updateHeading(magReading)
+    # steps = 0
 
     ### This code is suppossed to be uncommented out in the pi ###
-    # Comm.request_data()
-    # time.sleep(1)
-    # Comm.request_data()
-    # magReading = Comm.get_heading()
-    # currHeading = updateHeading(magReading)
-    # Comm.send_reset()
-    # stepStatus = 0
-    # steps = 0
+    Comm.request_data()
+    time.sleep(1)
+    Comm.request_data()
+    magReading = Comm.get_heading()
+    currHeading = updateHeading(magReading)
+    Comm.send_reset()
+    stepStatus = 0
+    steps = 0
 
     while (nextNodeIndex != len(path)):
         straightFlag = 0
@@ -631,39 +629,39 @@ for y in range(runDjikstra):
                 print isCorridor
                 while abs(getTurnAngle(idealHeading, currHeading)) >= 10:
                     ### The following code is for debugging in the ide so comment it in the pi ##
-                    stepStatus = input("Stray steps: ")
-                    magReading = input("Heading: ")
-                    currHeading = updateHeading(magReading)
-                    steps = stepStatus
-
-                    ### This code is suppossed to be uncommented out in the pi ###
-                    # Comm.request_data()
-                    # stepStatus = Comm.get_steps()
-                    # magReading = Comm.get_heading()
+                    # stepStatus = input("Stray steps: ")
+                    # magReading = input("Heading: ")
                     # currHeading = updateHeading(magReading)
                     # steps = stepStatus
+
+                    ### This code is suppossed to be uncommented out in the pi ###
+                    Comm.request_data()
+                    stepStatus = Comm.get_steps()
+                    magReading = Comm.get_heading()
+                    currHeading = updateHeading(magReading)
+                    steps = stepStatus
 
                     giveDirection()
                 straightFlag = 1
 
 
             ### The following code is for debugging in the ide so comment it in the pi ###
-            stepStatus = input("Steps walked: ")
-            magReading = input("Heading: ")
-            currHeading = updateHeading(magReading)
-            print "Step Status: " + str(stepStatus)
-            print "Current Heading: " + str(currHeading)
-            distancewalked = stepLength
-
-            ### This code is suppossed to be uncommented out in the pi ###
-            # Comm.request_data()
-            # stepStatus = Comm.get_steps()
-            # magReading = Comm.get_heading()
+            # stepStatus = input("Steps walked: ")
+            # magReading = input("Heading: ")
             # currHeading = updateHeading(magReading)
             # print "Step Status: " + str(stepStatus)
             # print "Current Heading: " + str(currHeading)
-            # print path[nextNodeIndex-1] + 1
-            # print path[nextNodeIndex] + 1
+            # distancewalked = stepLength
+
+            ### This code is suppossed to be uncommented out in the pi ###
+            Comm.request_data()
+            stepStatus = Comm.get_steps()
+            magReading = Comm.get_heading()
+            currHeading = updateHeading(magReading)
+            print "Step Status: " + str(stepStatus)
+            print "Current Heading: " + str(currHeading)
+            print path[nextNodeIndex-1] + 1
+            print path[nextNodeIndex] + 1
 
             if stepStatus > steps:
                 disleft = distanceAngleCalculation.distance(currX, currY,
@@ -702,12 +700,12 @@ for y in range(runDjikstra):
 
         if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex]+1 == 21:
             print "Intermediate"
-            # os.system("flite -t 'Intermediate' ")
+            os.system("flite -t 'Intermediate' ")
         else:
             print "Reached: Node " + str(path[nextNodeIndex] + 1)
-            # os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
+            os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
         nextNodeIndex += 1
 
     print reachedEndNodeMsg
-    # os.system("flite -t '" + reachedEndNodeMsg + "'")
+    os.system("flite -t '" + reachedEndNodeMsg + "'")
 
