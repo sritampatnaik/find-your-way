@@ -6,8 +6,8 @@ import time
 import os
 
 ## This code is suppossed to be uncommented out in the pi ###
-import communication
-Comm = communication.Comm()
+# import communication
+# Comm = communication.Comm()
 
 
 # Connector nodes between maps
@@ -82,236 +82,236 @@ def giveWarning(currNode, nextNode, disLeft, bnum, lnum):
     if bnum == 1 and lnum == 2:
         if currNode == 34 and nextNode == 26:
             if disLeft <= 250:
-                os.system("flite -t 'Vaani bang bang Pull '")
+                # os.system("flite -t 'Vaani bang bang Pull '")
                 print "glass hai aage"
                 warnFlag=1
         elif currNode == 26 and nextNode == 29:
-            os.system("flite -t 'Vaani bang bang Pull '")
+            # os.system("flite -t 'Vaani bang bang Pull '")
             print "glass hai aage"
             warnFlag=1
         elif currNode == 29 and nextNode == 26:
             if disLeft <= 250:
-                os.system("flite -t 'Vaani bang bang Push  '")
+                # os.system("flite -t 'Vaani bang bang Push  '")
                 print "glass hai aage"
                 warnFlag=1
         elif currNode == 15 and nextNode == 32:
-            os.system("flite -t 'Vaani bang bang ahead '")
+            # os.system("flite -t 'Vaani bang bang ahead '")
             print "glass hai aage"
             warnFlag=1
         elif currNode == 32 and nextNode == 15:
-            os.system("flite -t 'Vaani bang bang ahead'")
+            # os.system("flite -t 'Vaani bang bang ahead'")
             print "glass hai aage"
             warnFlag=1
         elif currNode == 4 and nextNode == 6:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 6 and nextNode == 4:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 8 and nextNode == 9:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 9 and nextNode == 8:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 32 and nextNode == 33:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 33 and nextNode == 32:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 39 and nextNode == 40:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 40 and nextNode == 39:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 17 and nextNode == 19:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 19 and nextNode == 17:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 21 and nextNode == 23:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 23 and nextNode == 21:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 24 and nextNode == 27:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 27 and nextNode == 24:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 37 and nextNode == 38:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 38 and nextNode == 37:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 18 and nextNode == 20:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 20 and nextNode == 18:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 34 and nextNode == 35:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 35 and nextNode == 34:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
                 print "wood hai aage"
                 warnFlag = 1
         elif currNode == 28 and nextNode == 30:
-            os.system("flite -t 'Stairs Ahead Jaldi kar   '")  # wooden door
+            # os.system("flite -t 'Stairs Ahead Jaldi kar   '")  # wooden door
             print "stair hai aage"
             warnFlag = 1
         elif currNode == 30 and nextNode == 28:
-            os.system("flite -t 'Stairs Ahead Jaldi kar '")  # wooden door
+            # os.system("flite -t 'Stairs Ahead Jaldi kar '")  # wooden door
             print "stair hai aage"
             warnFlag = 1
         elif currNode == 22 and nextNode == 25:
-            os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
         elif currNode == 25 and nextNode == 22:
-            os.system("flite -t 'Wooden door ahead Push '")  # wooden door
+            # os.system("flite -t 'Wooden door ahead Push '")  # wooden door
             print "wood hai aage"
             warnFlag = 1
     elif bnum == 2 and lnum == 2:
         if currNode == 6 and nextNode == 11:
             if disLeft <= 250:
-                os.system("flite -t 'Vaani bang bang Pull  '")
+                # os.system("flite -t 'Vaani bang bang Pull  '")
                 print "glass hai aage"
                 warnFlag=1
         elif currNode == 11 and nextNode == 12:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+                # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 12 and nextNode == 13:
-            os.system("flite -t 'Wooden door right Push   '") #wooden door
+            # os.system("flite -t 'Wooden door right Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 14 and nextNode == 15:
-            os.system("flite -t 'Stairs Ahead Jaldi kar'")
+            # os.system("flite -t 'Stairs Ahead Jaldi kar'")
             print "stair hai aage"
             warnFlag=1
         elif currNode == 17 and nextNode == 18:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 18 and nextNode == 17:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 2 and nextNode == 3:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 3 and nextNode == 2:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 5 and nextNode == 4:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 4 and nextNode == 5:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 19 and nextNode == 20:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 20 and nextNode == 19:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 8 and nextNode == 9:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 9 and nextNode == 8:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
     elif bnum == 2 and lnum == 3:
         if currNode == 10 and nextNode == 9:
-            os.system("flite -t 'Wooden door Pull'")
+            # os.system("flite -t 'Wooden door Pull'")
             print "wood hai aage"
             warnFlag=1
         elif currNode == 9 and nextNode == 8:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door Pull '")
+                # os.system("flite -t 'Wooden door Pull '")
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 8 and nextNode == 7:
             if disLeft <= 250:
-                os.system("flite -t 'Vaani bang bang Push '")
+                # os.system("flite -t 'Vaani bang bang Push '")
                 print "glass hai aage"
                 warnFlag=1
         elif currNode == 12 and nextNode == 13:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 13 and nextNode == 12:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 4 and nextNode == 5:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 5 and nextNode == 4:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
         elif currNode == 14 and nextNode == 15:
-            os.system("flite -t 'Wooden door ahead Push   '") #wooden door
+            # os.system("flite -t 'Wooden door ahead Push   '") #wooden door
             print "wood hai aage"
             warnFlag=1
         elif currNode == 15 and nextNode == 14:
             if disLeft <= 250:
-                os.system("flite -t 'Wooden door right Push   '") #wooden door
+                # os.system("flite -t 'Wooden door right Push   '") #wooden door
                 print "wood hai aage"
                 warnFlag=1
 
@@ -341,11 +341,11 @@ def giveDirection():
             turnDirection = 'right'
 
         if abs(turnAngle) >= 10:
-            os.system("flite -t ' " + turnDirection + str(int(abs(turnAngle))) + " walk " + str(int(round(minDis / stepLength))) + " steps '")
+            # os.system("flite -t ' " + turnDirection + str(int(abs(turnAngle))) + " walk " + str(int(round(minDis / stepLength))) + " steps '")
             print  turnDirection + str(int(abs(turnAngle))) + ' walk ' + str(int(round(minDis/stepLength))) + ' steps  '
 
         else:
-            os.system("flite -t 'Walk straight " + str(int(round(minDis / stepLength))) + " steps'")
+            # os.system("flite -t 'Walk straight " + str(int(round(minDis / stepLength))) + " steps'")
             print 'Walk straight ' + str(int(round(minDis /stepLength))) + ' steps '
 
 def isAtNextNode():
@@ -404,50 +404,6 @@ def checkCorridor(map):
         return c2L3[path[nextNodeIndex - 1] + 1] == 1 and c2L3[path[nextNodeIndex] + 1] == 1
 
 ### The following code is for debugging in the ide so comment it in the pi ###
-# confirm = ""
-# while confirm != "*":
-#     startBuildingNo = ""
-#     startLevelNo = ""
-#     startNodeNo = ""
-#     endBuildingNo = ""
-#     endLevelNo = ""
-#     endNodeNo = ""
-#     start = ""
-#     end =""
-#
-#     print "Starting details: "
-#     while start == "":
-#         start = str(input())
-#
-#     print "Ending details: "
-#     while end == "":
-#         end = str(input())
-#
-#     startBuildingNo =  int(start[0])
-#     startLevelNo = int(start[1])
-#     if len(start) == 3:
-#         startNodeNo = int(start[2])
-#     elif len(start) == 4:
-#         startNodeNo = int(start[2] + start[3])
-#
-#     print "start building: " + str(startBuildingNo)
-#     print "start level: " + str(startLevelNo)
-#     print "start node: " + str(startNodeNo)
-#
-#     endBuildingNo = int(start[0])
-#     endLevelNo = int(start[1])
-#     if len(start) == 3:
-#         endNodeNo = int(start[2])
-#     elif len(start) == 4:
-#         endNodeNo = int(start[2] + start[3])
-#
-#     print "end building: " + str(endBuildingNo)
-#     print "end level: " + str(endLevelNo)
-#     print "end node: " + str(endNodeNo)
-#
-#     confirm = raw_input("confirm:")
-
-## This code is suppossed to be uncommented out in the pi ###
 confirm = ""
 while confirm != "*":
     startBuildingNo = ""
@@ -457,27 +413,26 @@ while confirm != "*":
     endLevelNo = ""
     endNodeNo = ""
     start = ""
-    end = ""
-    confirm = ""
+    end =""
 
     print "Starting details: "
-    os.system('flite -t "Enter starting details:" ')
     while start == "":
-        start = str(Comm.get_keypad_input())
+        start = str(input())
 
     print "Ending details: "
-    os.system('flite -t "Enter ending details:" ')
     while end == "":
-        end = str(Comm.get_keypad_input())
+        end = str(input())
 
-    startBuildingNo = int(start[0])
+    startBuildingNo =  int(start[0])
     startLevelNo = int(start[1])
     if len(start) == 3:
         startNodeNo = int(start[2])
     elif len(start) == 4:
         startNodeNo = int(start[2] + start[3])
 
-
+    print "start building: " + str(startBuildingNo)
+    print "start level: " + str(startLevelNo)
+    print "start node: " + str(startNodeNo)
 
     endBuildingNo = int(end[0])
     endLevelNo = int(end[1])
@@ -486,21 +441,66 @@ while confirm != "*":
     elif len(end) == 4:
         endNodeNo = int(end[2] + end[3])
 
-    print "start building: " + str(startBuildingNo)
-    print "start level: " + str(startLevelNo)
-    print "start node: " + str(startNodeNo)
     print "end building: " + str(endBuildingNo)
     print "end level: " + str(endLevelNo)
     print "end node: " + str(endNodeNo)
 
-    os.system("flite -t 'Start Building " + str(startBuildingNo) + ", start level " + str(startLevelNo) + ", start node " +  str(startNodeNo) + "'")
-    os.system("flite -t 'End Building " + str(endBuildingNo) + ", end level " + str(endLevelNo) + ", end node " +  str(endNodeNo) + "'")
+    confirm = raw_input("confirm:")
 
-    os.system('flite -t "Press star and hash to confirm:" ')
-    while confirm == "":
-        confirm = Comm.get_keypad_input()
-
-os.system('flite -t "You have confirmed" ')
+## This code is suppossed to be uncommented out in the pi ###
+# confirm = ""
+# while confirm != "*":
+#     startBuildingNo = ""
+#     startLevelNo = ""
+#     startNodeNo = ""
+#     endBuildingNo = ""
+#     endLevelNo = ""
+#     endNodeNo = ""
+#     start = ""
+#     end = ""
+#     confirm = ""
+#
+#     print "Starting details: "
+#     os.system('flite -t "Enter starting details:" ')
+#     while start == "":
+#         start = str(Comm.get_keypad_input())
+#
+#     print "Ending details: "
+#     os.system('flite -t "Enter ending details:" ')
+#     while end == "":
+#         end = str(Comm.get_keypad_input())
+#
+#     startBuildingNo = int(start[0])
+#     startLevelNo = int(start[1])
+#     if len(start) == 3:
+#         startNodeNo = int(start[2])
+#     elif len(start) == 4:
+#         startNodeNo = int(start[2] + start[3])
+#
+#
+#
+#     endBuildingNo = int(end[0])
+#     endLevelNo = int(end[1])
+#     if len(end) == 3:
+#         endNodeNo = int(end[2])
+#     elif len(end) == 4:
+#         endNodeNo = int(end[2] + end[3])
+#
+#     print "start building: " + str(startBuildingNo)
+#     print "start level: " + str(startLevelNo)
+#     print "start node: " + str(startNodeNo)
+#     print "end building: " + str(endBuildingNo)
+#     print "end level: " + str(endLevelNo)
+#     print "end node: " + str(endNodeNo)
+#
+#     os.system("flite -t 'Start Building " + str(startBuildingNo) + ", start level " + str(startLevelNo) + ", start node " +  str(startNodeNo) + "'")
+#     os.system("flite -t 'End Building " + str(endBuildingNo) + ", end level " + str(endLevelNo) + ", end node " +  str(endNodeNo) + "'")
+#
+#     os.system('flite -t "Press star and hash to confirm:" ')
+#     while confirm == "":
+#         confirm = Comm.get_keypad_input()
+#
+# os.system('flite -t "You have confirmed" ')
 
 if int(startBuildingNo) != int(endBuildingNo) and int(startLevelNo) != int(endLevelNo):
     print "here"
@@ -607,20 +607,20 @@ for y in range(runDjikstra):
     prevTotalDistance = 0
 
     ### The following code is for debugging in the ide so comment it in the pi ###
-    # stepStatus = 0
-    # magReading = input("Heading:" )
-    # currHeading = updateHeading(magReading)
-    # steps = 0
+    stepStatus = 0
+    magReading = input("Heading:" )
+    currHeading = updateHeading(magReading)
+    steps = 0
 
     ### This code is suppossed to be uncommented out in the pi ###
-    Comm.request_data()
-    time.sleep(1)
-    Comm.request_data()
-    magReading = Comm.get_heading()
-    currHeading = updateHeading(magReading)
-    Comm.send_reset()
-    stepStatus = 0
-    steps = 0
+    # Comm.request_data()
+    # time.sleep(1)
+    # Comm.request_data()
+    # magReading = Comm.get_heading()
+    # currHeading = updateHeading(magReading)
+    # Comm.send_reset()
+    # stepStatus = 0
+    # steps = 0
 
     while (nextNodeIndex != len(path)):
         straightFlag = 0
@@ -641,39 +641,39 @@ for y in range(runDjikstra):
                 print isCorridor
                 while abs(getTurnAngle(idealHeading, currHeading)) >= 10:
                     ### The following code is for debugging in the ide so comment it in the pi ##
-                    # stepStatus = input("Stray steps: ")
-                    # magReading = input("Heading: ")
-                    # currHeading = updateHeading(magReading)
-                    # steps = stepStatus
-
-                    ### This code is suppossed to be uncommented out in the pi ###
-                    Comm.request_data()
-                    stepStatus = Comm.get_steps()
-                    magReading = Comm.get_heading()
+                    stepStatus = input("Stray steps: ")
+                    magReading = input("Heading: ")
                     currHeading = updateHeading(magReading)
                     steps = stepStatus
+
+                    ### This code is suppossed to be uncommented out in the pi ###
+                    # Comm.request_data()
+                    # stepStatus = Comm.get_steps()
+                    # magReading = Comm.get_heading()
+                    # currHeading = updateHeading(magReading)
+                    # steps = stepStatus
 
                     giveDirection()
                 straightFlag = 1
 
 
             ### The following code is for debugging in the ide so comment it in the pi ###
-            # stepStatus = input("Steps walked: ")
-            # magReading = input("Heading: ")
-            # currHeading = updateHeading(magReading)
-            # print "Step Status: " + str(stepStatus)
-            # print "Current Heading: " + str(currHeading)
-            # distancewalked = stepLength
-
-            ### This code is suppossed to be uncommented out in the pi ###
-            Comm.request_data()
-            stepStatus = Comm.get_steps()
-            magReading = Comm.get_heading()
+            stepStatus = input("Steps walked: ")
+            magReading = input("Heading: ")
             currHeading = updateHeading(magReading)
             print "Step Status: " + str(stepStatus)
             print "Current Heading: " + str(currHeading)
-            print path[nextNodeIndex-1] + 1
-            print path[nextNodeIndex] + 1
+            distancewalked = stepLength
+
+            ### This code is suppossed to be uncommented out in the pi ###
+            # Comm.request_data()
+            # stepStatus = Comm.get_steps()
+            # magReading = Comm.get_heading()
+            # currHeading = updateHeading(magReading)
+            # print "Step Status: " + str(stepStatus)
+            # print "Current Heading: " + str(currHeading)
+            # print path[nextNodeIndex-1] + 1
+            # print path[nextNodeIndex] + 1
 
             if stepStatus > steps:
                 disleft = distanceAngleCalculation.distance(currX, currY,
@@ -697,18 +697,18 @@ for y in range(runDjikstra):
             # currY = input("Current Y: ")
             # currHeading = int(input("Current Heading: "))
 
-            if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex-1]+1 == 19 and path[nextNodeIndex]+1 == 6:
-                print ("LW Reading: ") + str(Comm.get_distanceLW())
-                if Comm.get_distanceLW() > LW_threshold and leftCorridorFlag == 0:
-                    os.system("flite -t 'Left Corridor Detected. This should be Node 6'")
-                    print "Left Corridor Detected. This should be Node 6"
-                    leftCorridorFlag = 1
-
-            if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex-1]+1 == 6 and path[nextNodeIndex]+1 ==11:
-                if leftCorridorFlag == 0:
-                    os.system("flite -t 'Left Corridor Detected Already. This should be Node 6'")
-                    print "No corridor was detected on the left."
-                    leftCorridorFlag = 1
+            # if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex-1]+1 == 19 and path[nextNodeIndex]+1 == 6:
+            #     print ("LW Reading: ") + str(Comm.get_distanceLW())
+            #     if Comm.get_distanceLW() > LW_threshold and leftCorridorFlag == 0:
+            #         os.system("flite -t 'Left Corridor Detected. This should be Node 6'")
+            #         print "Left Corridor Detected. This should be Node 6"
+            #         leftCorridorFlag = 1
+            #
+            # if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex-1]+1 == 6 and path[nextNodeIndex]+1 ==11:
+            #     if leftCorridorFlag == 0:
+            #         os.system("flite -t 'Left Corridor Detected Already. This should be Node 6'")
+            #         print "No corridor was detected on the left."
+            #         leftCorridorFlag = 1
 
             if isAtNextNode(): break;
             giveDirection()
@@ -725,12 +725,13 @@ for y in range(runDjikstra):
 
         if currMap.buildingName == 2 and currMap.levelNo == 2 and path[nextNodeIndex]+1 == 21:
             print "Intermediate"
-            os.system("flite -t 'Intermediate' ")
+            # os.system("flite -t 'Intermediate' ")
         else:
             print "Reached: Node " + str(path[nextNodeIndex] + 1)
-            os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
+            # os.system("flite -t 'Reached: Node " + str(path[nextNodeIndex] + 1) + "'")
         nextNodeIndex += 1
 
     print reachedEndNodeMsg
-    os.system("flite -t '" + reachedEndNodeMsg + "'")
+    # os.system("flite -t '" + reachedEndNodeMsg + "'")
+
 
